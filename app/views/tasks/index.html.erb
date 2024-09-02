@@ -1,0 +1,19 @@
+<div class="tasks-container">
+  <h2>Tasks</h2>
+
+  <% @tasks.each do |task| %>
+    <div class="task-item <%= 'completed' if task.completed? %>">
+      <%= form_with url: toggle_complete_task_path(task), method: :patch do %>
+        <%= check_box_tag "completed", task.id, task.completed?, class: "task-checkbox", onchange: "this.form.submit();" %>
+      <% end %>
+      <div class="task-details">
+        <strong><%= task.title %></strong>
+        <p><%= task.sub_title %></p>
+      </div>
+      <div class="task-meta">
+        <span class="priority <%= task.priority %>-priority"><%= task.priority.capitalize %> PRIORITY</span>
+        <span class="due-date"><%= task.due_date.strftime('%a, %d %b %Y, %l:%M%P') %></span>
+      </div>
+    </div>
+  <% end %>
+</div>

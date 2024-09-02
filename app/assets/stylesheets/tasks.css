@@ -1,0 +1,72 @@
+.tasks-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tasks-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.task-item:last-child {
+  border-bottom: none;
+}
+
+.task-details {
+  flex-grow: 1;
+  margin-left: 15px;
+}
+
+.task-details strong {
+  font-size: 18px;
+}
+
+.task-details p {
+  margin: 5px 0;
+  color: #777;
+}
+
+.task-meta {
+  display: flex;
+  align-items: center;
+}
+
+.priority {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+.high-priority {
+  background-color: #ffcccc;
+  color: #cc0000;
+}
+
+.medium-priority {
+  background-color: #fff0cc;
+  color: #cc7a00;
+}
+
+.low-priority {
+  background-color: #ccffcc;
+  color: #00cc00;
+}
+
+.due-date {
+  color: #aaa;
+  font-size: 14px;
+}
