@@ -1,0 +1,44 @@
+# Ignored files or directories
+AllCops:
+  Exclude:
+    - "bin/*"
+    - "config/**/*"
+    - "db/**/*"
+    - "vendor/bundle/**/*"
+
+# require other extensions
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+# Changed default format
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Layout/LineLength:
+  Max: 110
+
+# Disabled
+  # Styles
+Style/Documentation:
+  Enabled: false
+Naming/AccessorMethodName:
+  Enabled: false
+Lint/MissingSuper:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+  # RSpec
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/LetSetup:
+  Enabled: false
+RSpec/NestedGroups:
+  Enabled: false
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+# Disabled common
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"

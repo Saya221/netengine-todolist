@@ -1,19 +1,26 @@
 <div class="tasks-container">
-  <h2>Tasks</h2>
+  <div class="tasks-header">
+    <h2>Tasks</h2>
+    <button id="add-task-btn" class="add-task-btn">Add Task</button>
+  </div>
 
   <% @tasks.each do |task| %>
-    <div class="task-item <%= 'completed' if task.completed? %>">
+    <div class="task-item <%= task.status %>">
       <%= form_with url: toggle_complete_task_path(task), method: :patch do %>
-        <%= check_box_tag "completed", task.id, task.completed?, class: "task-checkbox", onchange: "this.form.submit();" %>
+        <%= check_box_tag "completed", task.id, task.completed?, class: "task-checkbox", onchange: "this.form.submit();", disabled: task.expired? %>
       <% end %>
       <div class="task-details">
-        <strong><%= task.title %></strong>
-        <p><%= task.sub_title %></p>
+        <strong class="task-title"><%= task.title %></strong>
+        <p class="task-subtitle"><%= task.sub_title %></p>
       </div>
       <div class="task-meta">
         <span class="priority <%= task.priority %>-priority"><%= task.priority.capitalize %> PRIORITY</span>
-        <span class="due-date"><%= task.due_date.strftime('%a, %d %b %Y, %l:%M%P') %></span>
+        <span class="due-date"><%= task.due_date.strftime('%a, %d %b %Y') %></span>
       </div>
+      <span class="task-status"><%= task.status.humanize %></span>
+      <%= button_to 'Remove', task_path(task), method: :delete, class: 'remove-task-btn', data: { completed: task.completed? || task.expired? } %>
     </div>
   <% end %>
 </div>
+
+<%= render "shared/add_tasks" %>

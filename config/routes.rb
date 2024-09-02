@@ -3,9 +3,11 @@
 Rails.application.routes.draw do
   root to: 'tasks#index'
 
-  resources :tasks, except: %i[index show] do
+  resources :tasks, only: %i[create destroy] do
     member do
       patch :toggle_complete
     end
   end
+
+  get :ping, to: 'healthchecks#ping'
 end

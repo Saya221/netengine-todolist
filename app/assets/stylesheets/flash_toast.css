@@ -1,0 +1,41 @@
+.flash-toast-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  max-width: 300px;
+  pointer-events: none;
+}
+
+.flash-toast {
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateX(0%);
+  transition: opacity 0.3s ease-out, transform 0.4s ease-out;
+  pointer-events: all;
+}
+
+.flash-toast.notice {
+  background-color: #4CAF50;
+}
+
+.flash-toast.alert {
+  background-color: #f44336;
+}
+
+.flash-toast .close-toast {
+  margin-left: 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.flash-toast.show {
+  opacity: 1;
+  transform: translateX(-20px);
+}

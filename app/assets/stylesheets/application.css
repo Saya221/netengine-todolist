@@ -1,3 +1,2 @@
-/* Application styles */
-
-@import 'tasks'
+@import url('tasks.css');
+@import url('flash_toast.css');

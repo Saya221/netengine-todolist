@@ -1,13 +1,10 @@
 # frozen_string_literal: true
 
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[edit update destroy]
+  before_action :set_task, only: %i[destroy toggle_complete]
 
   def index
     @tasks = Task.default
-  end
-
-  def new
     @task = Task.new
   end
 
@@ -15,32 +12,23 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to root_path, notice: 'Task was successfully created.'
+      redirect_to root_path, notice: "Task was successfully created."
     else
-      render :new
-    end
-  end
-
-  def edit; end
-
-  def update
-    if @task.update(task_params)
-      redirect_to root_path, notice: 'Task was successfully updated.'
-    else
-      render :edit
+      flash[:alert] = @task.errors.full_messages.join(", ")
+      redirect_to root_path
     end
   end
 
   def destroy
     @task.destroy
 
-    redirect_to root_path, notice: 'Task was successfully deleted.'
+    redirect_to root_path, notice: "Task was successfully deleted."
   end
 
   def toggle_complete
-    @task.completed!
+    @task.completed? ? @task.in_progress! : @task.completed!
 
-    redirect_to root_path, notice: 'Task was mark as completed.'
+    redirect_to root_path, notice: "Task was marked as #{@task.status.humanize}."
   end
 
   private

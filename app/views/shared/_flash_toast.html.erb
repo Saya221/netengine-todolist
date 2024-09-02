@@ -1,0 +1,6 @@
+<% flash.each do |key, message| %>
+  <div class="flash-toast <%= key %>">
+    <%= message %>
+    <span class="close-toast" onclick="this.parentElement.style.display='none';">&times;</span>
+  </div>
+<% end %>

@@ -1,24 +1,15 @@
-# README
+# System Engine - NetEngine Todo List
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Rails project - Todo List
 
-Things you may want to cover:
+## Introduction
 
-* Ruby version
+### Where can I access this project?
 
-* System dependencies
+| Environment | URL                                                                                                                             |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Production  | [https://netengine-todolist.onrender.com/](https://netengine-todolist.onrender.com/ "https://netengine-todolist.onrender.com/") |
 
-* Configuration
+## Support
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This project uses Ruby 3.2.2 and Propshaft for compiling CSS assets.
